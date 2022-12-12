@@ -1,0 +1,49 @@
+<div class="container pt-5">
+  <div class="row border p-4 rounded-4 shadow" *ngIf="personaje; else loading">
+    <div class="col-sm-3">
+      <img src="{{ personaje.image }}" alt="{{ personaje.name }}" />
+    </div>
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col">
+          <span class="fw-bold">Nombre:</span> {{ personaje.name }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <span class="fw-bold">Especie:</span> {{ personaje.species }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <span class="fw-bold">Género:</span> {{ personaje.gender }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <span class="fw-bold">Origen:</span> {{ personaje.origin!.name }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <span class="fw-bold">Ubicación actual:</span>
+          {{ personaje.location!.name }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-primary mt-4" routerLink="characters">
+            Volver a la lista de personajes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <div
+      class="container d-flex justify-content-center align-items-center loading_container"
+    >
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</div>

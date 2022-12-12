@@ -1,0 +1,47 @@
+<div *ngIf="personajes.length > 0; else loading" class="container-fluid mt-4">
+  <div class="row mx-5 rick_banner">
+    <div class="col d-flex align-items-center ps-5">
+      <button
+        class="btn btn-warning nuevo_personaje fw-semibold fs-5"
+        routerLink="/characters/add"
+      >
+        Agregar nuevo personaje
+      </button>
+      <button
+        class="btn btn-warning nuevo_personaje fw-semibold fs-5"
+        routerLink="/characters/add"
+      >
+        Agregar nuevo personaje
+      </button>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div
+      class="card carta m-3 p-0 float-start"
+      *ngFor="let personaje of personajes"
+    >
+      <img
+        src="{{ personaje.image }}"
+        class="card-img-top"
+        alt="{{ personaje.name }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ personaje.name }}</h5>
+        <div class="row">
+          <a
+            class="btn btn-warning col mx-4"
+            routerLink="/characters/details/{{ personaje.id }}"
+            >Ver detalles</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <div
+    class="container d-flex justify-content-center align-items-center loading_container"
+  >
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

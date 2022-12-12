@@ -1,0 +1,20 @@
+a.nav_logo {
+    color: white;
+}
+
+a {
+    color: rgb(201, 201, 201)
+}
+
+a.active {
+    color: white;
+}
+
+a:hover {
+    color: white;
+    cursor: pointer;
+}
+
+li {
+    margin-right: 10px;
+}

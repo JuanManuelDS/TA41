@@ -1,0 +1,27 @@
+div.carta {
+    width: 14rem;
+    max-width: 14rem;
+    min-width: 14rem;
+}
+
+li>a {
+    color: orange;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+li>a:hover {
+    cursor: pointer;
+    color: white;
+    background-color: orange;
+}
+
+.rick_banner {
+    height: 150px;
+    background-image: url('../../../assets/rick-banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+}
+
+.nuevo_personaje {}

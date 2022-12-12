@@ -1,0 +1,55 @@
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+  <div class="container">
+    <a class="navbar-brand fs-3 nav_logo" [routerLink]="['/home']"
+      >Rick & Morty</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/characters']"
+            routerLinkActive="active"
+            >Characters</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/about']"
+            routerLinkActive="active"
+            >About</a
+          >
+        </li>
+      </ul>
+      <form class="d-flex" role="search" [formGroup]="formulario">
+        <input
+          class="form-control me-2"
+          type="text"
+          formControlName="busqueda"
+          placeholder="Buscá un personaje..."
+          aria-label="Search"
+          (keyup)="buscarPersonaje()"
+        />
+        <button class="btn btn-outline-light">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
