@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Character } from 'src/app/interfaces/character.interface';
 import { PersonajesService } from 'src/app/services/personajes.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-details',
@@ -9,17 +10,46 @@ import { PersonajesService } from 'src/app/services/personajes.service';
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
-  personaje: Character | undefined;
+  personaje: Character | any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private personajesService: PersonajesService
+    private personajesService: PersonajesService,
+    private router: Router
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     let idPersonaje = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    setTimeout(() => {
-      this.personaje = this.personajesService.cargarPersonaje(idPersonaje);
-    }, 500);
+    this.personajesService.cargarPersonaje(idPersonaje).subscribe(
+      (resp) => {
+        this.personaje = resp;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  modificarPersonaje(id: number) {
+    this.router.navigateByUrl(`characters/update/${id}`);
+  }
+
+  eliminarPersonaje(id: number) {
+    Swal.fire({
+      title: 'Estás seguro que querés eliminar el personaje?',
+      showCancelButton: true,
+      confirmButtonText: 'Eliminar',
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          this.personajesService.eliminarPersonaje(id).subscribe();
+          Swal.fire('Personaje eliminado', '', 'success');
+        } else if (result.isDenied) {
+          Swal.fire('No se pudo eliminar el personaje', '', 'info');
+        }
+      })
+      .then(() => {
+        this.router.navigateByUrl('/characters');
+      });
   }
 }

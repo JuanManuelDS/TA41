@@ -10,6 +10,7 @@ import { DetailsComponent } from './characters/details/details.component';
 import { MaterialModule } from '../material/material.module';
 import { AddCharacterComponent } from './characters/add-character/add-character.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateCharacterComponent } from './characters/update-character/update-character.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CharactersComponent,
     DetailsComponent,
     AddCharacterComponent,
+    UpdateCharacterComponent,
   ],
   imports: [CommonModule, HttpClientModule, PagesRoutingModule, MaterialModule, ReactiveFormsModule],
 })

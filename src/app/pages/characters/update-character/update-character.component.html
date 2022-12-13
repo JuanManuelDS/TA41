@@ -1,0 +1,80 @@
+<div class="container-fluid d-flex justify-content-center">
+  <div class="form_container mt-4 rounded shadow p-4 border border-success">
+    <form [formGroup]="formulario" (ngSubmit)="actualizar()">
+      <div class="row mb-3">
+        <div class="col">
+          <label class="form-label">Nombre: </label>
+          <input
+            type="text"
+            formControlName="name"
+            class="form-control"
+            placeholder="Nombre..."
+          />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col">
+          <label class="form-label">Especie: </label>
+          <select class="form-select" formControlName="species">
+            <option value="">-- Elegir especie --</option>
+            <option value="alien">Alien</option>
+            <option value="human">Humano</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col">
+          <label class="form-label">Género: </label>
+          <select formControlName="gender" class="form-select">
+            <option value="">-- Elegir género --</option>
+            <option value="m">Masculino</option>
+            <option value="f">Femenino</option>
+            <option value="u">Desconocido</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col">
+          <label class="form-label">Origen: </label>
+          <input
+            type="text"
+            formControlName="origin"
+            class="form-control"
+            placeholder="Origen..."
+          />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col">
+          <label class="form-label">Ubicación actual: </label>
+          <input
+            type="text"
+            formControlName="location"
+            class="form-control"
+            placeholder="Ubicación actual..."
+          />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col">
+          <label class="form-label">URL imagen: </label>
+          <input
+            type="text"
+            formControlName="image"
+            class="form-control"
+            placeholder="URL..."
+          />
+        </div>
+      </div>
+
+      <button class="btn btn-success float-end mt-2" type="submit">
+        Actualizar
+      </button>
+    </form>
+  </div>
+</div>

@@ -18,7 +18,6 @@ export class CharactersComponent implements OnInit {
     //que cargue los personajes
     setTimeout(() => {
       this.personajesService.cargarPersonajes().subscribe();
-      //this.cargando = false;
     }, 650);
   }
 }
